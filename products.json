@@ -1,14 +1,5 @@
 [
 	{
-		"id": 1,
-		"title": "Rtx 3080ti",
-		"description": "Placa de video Nvidia",
-		"price": 500000,
-		"code": 575,
-		"stock": "SI",
-		"thumbnail": "https://m.media-amazon.com/images/I/71itKZcrIfL.jpg"
-	},
-	{
 		"id": 2,
 		"title": "Rtx 1050ti",
 		"description": "Placa de video Nvidia",

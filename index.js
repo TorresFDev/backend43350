@@ -6,10 +6,12 @@ class ProductManager{
         this.products=[]
         this.path= './products.json'
         this.format= 'utf-8'
+        this.error = undefined
     }
 
     static id = 0
     
+    /*agregar productos*/
     addProducts=async(title,description,price,code,stock,thumbnail) => {
         ProductManager.id++
         let newProduct ={id:ProductManager.id,title,description,price,code,stock,thumbnail}
@@ -18,41 +20,50 @@ class ProductManager{
         await fs.promises.writeFile(this.path,JSON.stringify(this.products, null, "\t"))
     }
 
+    /* mostrar productos*/
     showProducts = async() => {
         let show = await fs.promises.readFile(this.path, this.format)
         return JSON.parse(show)
     }
 
+    /*trae los productos*/
     getProducts=async() =>{
-        let allProducts = await this.showProducts()
-        return console.log(allProducts)
+        let allProducts1 = await this.showProducts()
+        return console.log(allProducts1)
     }
 
+    /*mostrar los productos por ID*/
     getProductsById=async(id) =>{        
-    let findProduct = await this.showProducts()
-    if(!findProduct.find((product)=> product.id === id)){
+    let allProducts2 = await this.showProducts()
+    if(!allProducts2.find((product)=> product.id === id)){
         console.log("Not Found")
     } else{
-        console.log(findProduct.find((product)=> product.id === id))
+        console.log(allProducts2.find((product)=> product.id === id))
     }
     };
 
-    //deleteProductsById = async() =>{
+    /*borra los productos por ID*/
+    deleteProductsById = async(id) =>{
+        let allProducts3 = await this.showProducts()
+        let productFilter = allProducts3.filter(products => products.id != id)
+        await fs.promises.writeFile(this.path,JSON.stringify(productFilter, null, "\t"))
+        console.log( `Delete Product`)
 
 
 
 
-// }
-}
 
 
-const productManager = new ProductManager
+}}
+
+
+const productManager = new ProductManager()
 // productManager.addProducts('Rtx 3080ti', 'Placa de video Nvidia',500000,575, 'SI', 'https://m.media-amazon.com/images/I/71itKZcrIfL.jpg')
 // productManager.addProducts('Rtx 1050ti', 'Placa de video Nvidia',50000, 570, 'SI', 'https://www.tradeinn.com/f/13743/137432046/msi-geforce-gtx-1050-ti-4gb-gddr5-graphic-card.jpg')
 
 // productManager.getProducts() /*TRAE TODOS LOS PRODUCTOS*/
 //productManager.getProductsById(1) /*SOLO TRAE EL ID INDICADO*/
-// productManager.deleteProductsById(1)
+//productManager.deleteProductsById(1) /* ELIMINA EL PRODUCTO INDICADO*/
 
 
 
