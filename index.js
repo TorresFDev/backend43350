@@ -1,8 +1,5 @@
 
 /*=============================INICIO ENTREGABLE 2 (A CORREGIR)============================================*/
-
-
-
 import fs from 'fs'
 class ProductManager{
     constructor(){
@@ -21,11 +18,31 @@ class ProductManager{
         await fs.promises.writeFile(this.path,JSON.stringify(this.products, null, "\t"))
     }
 
-    getProducts=async() =>{
-        let allProducts = await fs.promises.readFile(this.path, this.format)
-        console.log(JSON.parse(allProducts))
+    showProducts = async() => {
+        let show = await fs.promises.readFile(this.path, this.format)
+        return JSON.parse(show)
     }
 
+    getProducts=async() =>{
+        let allProducts = await this.showProducts()
+        return console.log(allProducts)
+    }
+
+    getProductsById=async(id) =>{        
+    let findProduct = await this.showProducts()
+    if(!findProduct.find((product)=> product.id === id)){
+        console.log("Not Found")
+    } else{
+        console.log(findProduct.find((product)=> product.id === id))
+    }
+    };
+
+    //deleteProductsById = async() =>{
+
+
+
+
+// }
 }
 
 
@@ -33,7 +50,10 @@ const productManager = new ProductManager
 // productManager.addProducts('Rtx 3080ti', 'Placa de video Nvidia',500000,575, 'SI', 'https://m.media-amazon.com/images/I/71itKZcrIfL.jpg')
 // productManager.addProducts('Rtx 1050ti', 'Placa de video Nvidia',50000, 570, 'SI', 'https://www.tradeinn.com/f/13743/137432046/msi-geforce-gtx-1050-ti-4gb-gddr5-graphic-card.jpg')
 
-productManager.getProducts()
+// productManager.getProducts() /*TRAE TODOS LOS PRODUCTOS*/
+//productManager.getProductsById(1) /*SOLO TRAE EL ID INDICADO*/
+// productManager.deleteProductsById(1)
+
 
 
 
