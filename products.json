@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"title": "Rtx 3080ti",
+		"description": "Placa de video Nvidia",
+		"price": 500000,
+		"code": 575,
+		"stock": "SI",
+		"thumbnail": "https://m.media-amazon.com/images/I/71itKZcrIfL.jpg"
+	},
+	{
+		"id": 2,
+		"title": "Rtx 1050ti",
+		"description": "Placa de video Nvidia",
+		"price": 50000,
+		"code": 570,
+		"stock": "SI",
+		"thumbnail": "https://www.tradeinn.com/f/13743/137432046/msi-geforce-gtx-1050-ti-4gb-gddr5-graphic-card.jpg"
+	}
+]
