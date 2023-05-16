@@ -48,22 +48,37 @@ class ProductManager{
         let productFilter = allProducts3.filter(products => products.id != id)
         await fs.promises.writeFile(this.path,JSON.stringify(productFilter, null, "\t"))
         console.log( `Delete Product`)
+    }
 
+    updateProducts = async({id, ...product}) =>{
+        await this.deleteProductsById(id)
+        let previousProduct = await this.showProducts();
+        let modifiedProduct=[{id, ...product},...previousProduct]
+        await fs.promises.writeFile(this.path,JSON.stringify(modifiedProduct, null, "\t"))
 
+        
+        }
 
-
-
-
-}}
+}
 
 
 const productManager = new ProductManager()
-// productManager.addProducts('Rtx 3080ti', 'Placa de video Nvidia',500000,575, 'SI', 'https://m.media-amazon.com/images/I/71itKZcrIfL.jpg')
-// productManager.addProducts('Rtx 1050ti', 'Placa de video Nvidia',50000, 570, 'SI', 'https://www.tradeinn.com/f/13743/137432046/msi-geforce-gtx-1050-ti-4gb-gddr5-graphic-card.jpg')
+productManager.addProducts('Rtx 3080ti', 'Placa de video Nvidia',500000,575, 'SI', 'https://m.media-amazon.com/images/I/71itKZcrIfL.jpg')
+productManager.addProducts('Rtx 1050ti', 'Placa de video Nvidia',50000, 570, 'SI', 'https://www.tradeinn.com/f/13743/137432046/msi-geforce-gtx-1050-ti-4gb-gddr5-graphic-card.jpg')
 
-// productManager.getProducts() /*TRAE TODOS LOS PRODUCTOS*/
-//productManager.getProductsById(1) /*SOLO TRAE EL ID INDICADO*/
-//productManager.deleteProductsById(1) /* ELIMINA EL PRODUCTO INDICADO*/
+productManager.getProducts() /*TRAE TODOS LOS PRODUCTOS*/
+productManager.getProductsById(1) /*SOLO TRAE EL ID INDICADO*/
+productManager.deleteProductsById(1) /* ELIMINA EL PRODUCTO INDICADO*/
+productManager.updateProducts(
+    {
+    id: 2,
+    title: 'Rtx 1050ti',
+    description: 'Placa de video Nvidia',
+    price: 852840,
+    code: 570,
+    stock: 'SI',
+    thumbnail: 'https://www.tradeinn.com/f/13743/137432046/msi-geforce-gtx-1050-ti-4gb-gddr5-graphic-card.jpg'
+})/*MODIFICA EL PRODUCTO SIN BORRAR EL ID*/
 
 
 
