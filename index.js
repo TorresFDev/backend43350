@@ -50,6 +50,7 @@ class ProductManager{
         console.log( `Delete Product`)
     }
 
+    /*editar productos*/
     updateProducts = async({id, ...product}) =>{
         await this.deleteProductsById(id)
         let previousProduct = await this.showProducts();
