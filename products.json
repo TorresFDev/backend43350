@@ -16,5 +16,41 @@
 		"code": 570,
 		"stock": "SI",
 		"thumbnail": "https://www.tradeinn.com/f/13743/137432046/msi-geforce-gtx-1050-ti-4gb-gddr5-graphic-card.jpg"
+	},
+	{
+		"id": 3,
+		"title": "Rtx 3060",
+		"description": "Placa de video Nvidia",
+		"price": 756780,
+		"code": 360,
+		"stock": "SI",
+		"thumbnail": "https://m.media-amazon.com/images/I/71itKZcrIfL.jpg"
+	},
+	{
+		"id": 4,
+		"title": "Rtx 3070ti",
+		"description": "Placa de video Nvidia",
+		"price": 963345,
+		"code": 448,
+		"stock": "SI",
+		"thumbnail": "https://m.media-amazon.com/images/I/71itKZcrIfL.jpg"
+	},
+	{
+		"id": 5,
+		"title": "Rx 6600xt",
+		"description": "Placa de video AMD",
+		"price": 45327,
+		"code": 525,
+		"stock": "SI",
+		"thumbnail": "https://m.media-amazon.com/images/I/71itKZcrIfL.jpg"
+	},
+	{
+		"id": 6,
+		"title": "Rt 6900",
+		"description": "Placa de video AMD",
+		"price": 800000,
+		"code": 501,
+		"stock": "SI",
+		"thumbnail": "https://m.media-amazon.com/images/I/71itKZcrIfL.jpg"
 	}
 ]
